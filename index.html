@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test With Ethics</title>
+
+<style>
+:root{
+  --blue:#00f5ff;
+  --purple:#b100ff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0b1230,#02030a);
+  color:white;
+  padding-bottom:60px; /* footer space */
+}
+
+.hidden{display:none}
+
+/* ================= HEADER ================= */
+header{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+
+header h1{
+  font-size:3rem;
+  font-weight:800;
+}
+
+header span{
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+header p{
+  opacity:.85;
+  margin-top:10px;
+}
+
+/* ================= SOCIAL ================= */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  padding:10px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.fb{background:#1877f2;color:white}
+.yt{background:#ff0000;color:white}
+.tt{background:black;color:white}
+
+.social a:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+/* ================= EXPLORE BUTTON ================= */
+.btn{
+  margin:40px auto 0;
+  padding:14px 34px;
+  border-radius:50px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  color:rgb(252, 252, 252);
+  font-weight:800;
+  cursor:pointer;
+
+  width:auto;
+  min-width:200px;
+  max-width:260px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  animation:glow 2s infinite;
+}
+
+@keyframes glow{
+  0%{box-shadow:0 0 10px var(--blue)}
+  50%{box-shadow:0 0 30px var(--purple)}
+  100%{box-shadow:0 0 10px var(--blue)}
+}
+
+@media(min-width:900px){
+  .btn:hover{transform:scale(1.05)}
+}
+
+/* ================= TIPS SECTION ================= */
+#tips{
+  animation:slideUp .6s ease;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  padding:25px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(0,245,255,.5);
+}
+
+.card h3{
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+
+.back{
+  cursor:pointer;
+  opacity:.8;
+  margin-bottom:20px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:15px 0;
+  background:linear-gradient(to top,rgba(2,3,10,.9),rgba(2,3,10,.6));
+  backdrop-filter:blur(6px);
+  opacity:.85;
+  font-size:.9rem;
+  z-index:10;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:600px){
+  header h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<section id="home">
+<header>
+  <h1> <span>S. M. Arafat</span></h1>
+  <p>Cyber Security • Ethical Testing • Awareness</p>
+  <p>__________By__________</p>
+  <p>• [ S. M. Arafat ] •</p>
+
+  <div class="social">
+    <a class="fb" href="https://facebook.com/s.m.arafat.881017" target="_blank">Facebook</a>
+    <a class="yt" href="https://youtube.com" target="_blank">YouTube</a>
+    <a class="tt" href="https://tiktok.com" target="_blank">TikTok</a>
+  </div>
+
+  <div class="btn" onclick="showTips()">Explore</div>
+</header>
+</section>
+
+<!-- TIPS -->
+<section id="tips" class="container hidden">
+<div class="back" onclick="goHome()">← Back</div>
+<h2>Cyber Security Tips</h2><br>
+
+<div class="grid">
+  <div class="card" onclick="openTopic('phishing')">
+    <h3>Phishing Awareness</h3>
+    <p>Fake links & scam detection</p>
+  </div>
+
+
+  <div class="card" onclick="openTopic('mobile')">
+    <h3>Mobile Security</h3>
+    <p> & mobile safety tips</p>
+  </div>
+
+
+
+  <div class="card" onclick="openTopic('web')">
+    <h3>Web Security</h3>
+    <p>Website vulnerability basics</p>
+  </div>
+
+  <div class="card" onclick="openTopic('malware')">
+    <h3>Malware & Virus</h3>
+    <p>Malicious software awareness</p>
+  </div>
+
+  <div class="card" onclick="openTopic('password')">
+    <h3>Password Security</h3>
+    <p>Strong password practices</p>
+  </div>
+
+  <div class="card" onclick="openTopic('spam')">
+    <h3>Spamming & Scam</h3>
+    <p>Spam & fraud prevention</p>
+  </div>
+
+  <div class="card" onclick="openTopic('other')">
+    <h3>Other Tips</h3>
+    <p>General cyber safety</p>
+  </div>
+</div>
+</section>
+
+<!-- TOPIC -->
+<section id="topic" class="container hidden">
+<div class="back" onclick="showTips()">← Back to Tips</div>
+
+<div class="card">
+  <h2 id="topicTitle"></h2><br>
+  <p>🎥 <a id="videoLink"  target="_blank">Watch Video</a></p><br>
+  <p id="topicText"></p>
+</div>
+
+<!-- TOPIC my ctreate -->
+
+
+
+</section>
+
+<footer>
+  © 2026  S. M. Arafat 
+</footer>
+
+<script>
+const data={
+ phishing:{title:"Phishing Awareness",video:"#",text:"ভুয়া লিংক ও মেসেজ থেকে সাবধান থাকুন।"},
+ mobile:{
+  title:"Mobile Security",
+  video:"https://facebook.com/s.m.arafat.881017",
+  text:"মোবাইল সিকিউরিটি হলো আমাদের মোবাইলে থাকা ব্যক্তিগত তথ্য, অ্যাকাউন্ট ও ডেটাকে হ্যাকিং, ভাইরাস এবং অননুমোদিত ব্যবহারের হাত থেকে সুরক্ষিত রাখার প্রক্রিয়া।"},
+ web:{title:"Web Security",video:"#",text:"XSS ও SQL Injection সম্পর্কে সচেতন থাকুন।"},
+ malware:{title:"Malware & Virus",video:"#",text:"অজানা ফাইল ও সফটওয়্যার ব্যবহার করবেন না।"},
+ password:{title:"Password Security",video:"#",text:"Strong ও unique password ব্যবহার করুন।"},
+ spam:{title:"Spamming & Scam",video:"#",text:"Spam ও fraud রিপোর্ট করুন।"},
+ other:{title:"Other Cyber Tips",video:"#",text:"Regular update ও backup রাখুন।"}
+ 
+ 
+
+};
+
+function showTips(){
+  home.classList.add("hidden");
+  tips.classList.remove("hidden");
+  topic.classList.add("hidden");
+}
+
+function goHome(){
+  home.classList.remove("hidden");
+  tips.classList.add("hidden");
+  topic.classList.add("hidden");
+}
+
+function openTopic(k){
+  tips.classList.add("hidden");
+  topic.classList.remove("hidden");
+  topicTitle.innerText=data[k].title;
+  videoLink.href=data[k].video;
+  topicText.innerText=data[k].text;
+}
+</script>
+
+</body>
+</html>
